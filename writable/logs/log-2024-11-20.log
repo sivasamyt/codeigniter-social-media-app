@@ -1,0 +1,30 @@
+CRITICAL - 2024-11-20 07:37:07 --> Error: Class "App\Models\LikeModel" not found
+[Method: GET, Route: filter_post]
+in APPPATH\Controllers\FeedController.php on line 21.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\FeedController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\codeigniter4\\public\\index.php')
+CRITICAL - 2024-11-20 07:38:40 --> Error: Class "App\Models\LikeModel" not found
+[Method: GET, Route: feed]
+in APPPATH\Controllers\FeedController.php on line 21.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\FeedController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\codeigniter4\\public\\index.php')
+CRITICAL - 2024-11-20 08:07:59 --> ArgumentCountError: Too few arguments to function App\Controllers\FeedController::get_post_details(), 0 passed in D:\codeigniter4\system\CodeIgniter.php on line 933 and exactly 1 expected
+[Method: GET, Route: post/details/1]
+in APPPATH\Controllers\FeedController.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FeedController->get_post_details()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FeedController))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\codeigniter4\\public\\index.php')

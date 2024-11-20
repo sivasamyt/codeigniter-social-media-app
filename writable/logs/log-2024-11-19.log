@@ -1,0 +1,110 @@
+ERROR - 2024-11-19 18:10:10 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')
+GROUP BY `p`.`id`' at line 6 in D:\codeigniter4\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\codeigniter4\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `p`.`id`...', 0)
+#1 D:\codeigniter4\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id`...')
+#2 D:\codeigniter4\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id`...')
+#3 D:\codeigniter4\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id`...', Array, false)
+#4 D:\codeigniter4\app\Models\PostModel.php(38): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\codeigniter4\app\Controllers\FeedController.php(20): App\Models\PostModel->get_posts_with_counts(Array)
+#6 D:\codeigniter4\system\CodeIgniter.php(933): App\Controllers\FeedController->get_post()
+#7 D:\codeigniter4\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FeedController))
+#8 D:\codeigniter4\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\codeigniter4\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 D:\codeigniter4\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 D:\codeigniter4\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 D:\codeigniter4\system\rewrite.php(44): require_once('D:\\codeigniter4...')
+#13 {main}
+CRITICAL - 2024-11-19 18:10:10 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')
+GROUP BY `p`.`id`' at line 6
+[Method: GET, Route: filter_post]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id`, `p`.`created_at`, `p`.`title`, `u`.`first_name`, `u`.`last_name`, COUNT(DISTINCT l.id) AS likes_count, COUNT(DISTINCT c.id) AS comments_count
+FROM `posts` `p`
+LEFT JOIN `likes` `l` ON `p`.`id` = `l`.`post_id`
+LEFT JOIN `comments` `c` ON `p`.`id` = `c`.`post_id`
+LEFT JOIN `users` `u` ON `p`.`user_id` = `u`.`id`
+WHERE `p`.`type` IN :p.type:
+GROUP BY `p`.`id`', [...], false)
+ 2 APPPATH\Models\PostModel.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\FeedController.php(20): App\Models\PostModel->get_posts_with_counts([])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FeedController->get_post()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FeedController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('D:\\codeigniter4\\public\\index.php')
+CRITICAL - 2024-11-19 18:10:10 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')
+GROUP BY `p`.`id`' at line 6
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id`, `p`.`created_at`, `p`.`title`, `u`.`first_name`, `u`.`last_name`, COUNT(DISTINCT l.id) AS likes_count, COUNT(DISTINCT c.id) AS comments_count
+FROM `posts` `p`
+LEFT JOIN `likes` `l` ON `p`.`id` = `l`.`post_id`
+LEFT JOIN `comments` `c` ON `p`.`id` = `c`.`post_id`
+LEFT JOIN `users` `u` ON `p`.`user_id` = `u`.`id`
+WHERE `p`.`type` IN ()
+GROUP BY `p`.`id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id`, `p`.`created_at`, `p`.`title`, `u`.`first_name`, `u`.`last_name`, COUNT(DISTINCT l.id) AS likes_count, COUNT(DISTINCT c.id) AS comments_count
+FROM `posts` `p`
+LEFT JOIN `likes` `l` ON `p`.`id` = `l`.`post_id`
+LEFT JOIN `comments` `c` ON `p`.`id` = `c`.`post_id`
+LEFT JOIN `users` `u` ON `p`.`user_id` = `u`.`id`
+WHERE `p`.`type` IN ()
+GROUP BY `p`.`id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id`, `p`.`created_at`, `p`.`title`, `u`.`first_name`, `u`.`last_name`, COUNT(DISTINCT l.id) AS likes_count, COUNT(DISTINCT c.id) AS comments_count
+FROM `posts` `p`
+LEFT JOIN `likes` `l` ON `p`.`id` = `l`.`post_id`
+LEFT JOIN `comments` `c` ON `p`.`id` = `c`.`post_id`
+LEFT JOIN `users` `u` ON `p`.`user_id` = `u`.`id`
+WHERE `p`.`type` IN :p.type:
+GROUP BY `p`.`id`', [...], false)
+ 4 APPPATH\Models\PostModel.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\FeedController.php(20): App\Models\PostModel->get_posts_with_counts([])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FeedController->get_post()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FeedController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\codeigniter4\\public\\index.php')
+CRITICAL - 2024-11-19 18:10:10 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')
+GROUP BY `p`.`id`' at line 6
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `p`.`id`, `p`.`created_at`, `p`.`title`, `u`.`first_name`, `u`.`last_name`, COUNT(DISTINCT l.id) AS likes_count, COUNT(DISTINCT c.id) AS comments_count
+FROM `posts` `p`
+LEFT JOIN `likes` `l` ON `p`.`id` = `l`.`post_id`
+LEFT JOIN `comments` `c` ON `p`.`id` = `c`.`post_id`
+LEFT JOIN `users` `u` ON `p`.`user_id` = `u`.`id`
+WHERE `p`.`type` IN ()
+GROUP BY `p`.`id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id`, `p`.`created_at`, `p`.`title`, `u`.`first_name`, `u`.`last_name`, COUNT(DISTINCT l.id) AS likes_count, COUNT(DISTINCT c.id) AS comments_count
+FROM `posts` `p`
+LEFT JOIN `likes` `l` ON `p`.`id` = `l`.`post_id`
+LEFT JOIN `comments` `c` ON `p`.`id` = `c`.`post_id`
+LEFT JOIN `users` `u` ON `p`.`user_id` = `u`.`id`
+WHERE `p`.`type` IN ()
+GROUP BY `p`.`id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id`, `p`.`created_at`, `p`.`title`, `u`.`first_name`, `u`.`last_name`, COUNT(DISTINCT l.id) AS likes_count, COUNT(DISTINCT c.id) AS comments_count
+FROM `posts` `p`
+LEFT JOIN `likes` `l` ON `p`.`id` = `l`.`post_id`
+LEFT JOIN `comments` `c` ON `p`.`id` = `c`.`post_id`
+LEFT JOIN `users` `u` ON `p`.`user_id` = `u`.`id`
+WHERE `p`.`type` IN ()
+GROUP BY `p`.`id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id`, `p`.`created_at`, `p`.`title`, `u`.`first_name`, `u`.`last_name`, COUNT(DISTINCT l.id) AS likes_count, COUNT(DISTINCT c.id) AS comments_count
+FROM `posts` `p`
+LEFT JOIN `likes` `l` ON `p`.`id` = `l`.`post_id`
+LEFT JOIN `comments` `c` ON `p`.`id` = `c`.`post_id`
+LEFT JOIN `users` `u` ON `p`.`user_id` = `u`.`id`
+WHERE `p`.`type` IN :p.type:
+GROUP BY `p`.`id`', [...], false)
+ 5 APPPATH\Models\PostModel.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\FeedController.php(20): App\Models\PostModel->get_posts_with_counts([])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FeedController->get_post()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FeedController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\codeigniter4\\public\\index.php')
